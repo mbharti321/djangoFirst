@@ -20,3 +20,7 @@ def functionIntro2(request, name, age):
         "age": age
     }
     return JsonResponse(introDict)
+
+
+def functionIndex(request):
+    return render(request, 'index.html')
