@@ -48,3 +48,27 @@ def myImage(request):
 
 def myImage2(request):
     return render(request, 'myImage2.html')
+
+
+def myForm(request):
+    return render(request, 'myForm.html')
+
+# For GET method
+# def myFormResponse(request):
+#     responseDict={
+#         "FName": request.GET['text1'],
+#         "LName": request.GET['text2'],
+#         "method": request.method,
+#     }
+#     return JsonResponse(responseDict)
+
+
+# For POST method
+def myFormResponse(request):
+    responseDict={
+        "FName": request.POST['text1'],
+        "LName": request.POST['text2'],
+        "method": request.method,
+    }
+    return JsonResponse(responseDict)
+    
