@@ -1,0 +1,25 @@
+{% extends 'baseTemplate.html' %}
+{% block title %} temp page {% endblock %}
+
+{% block content %}
+
+<h1>Hello, I'm Temporary page.</h1>
+
+<h4>Welcome {{name}}!</h4>
+<h5>Computer Languages:</h5>
+
+<!-- for each loop on passed variable -->
+<ul>
+    {% for eachLanguage in languages %}
+    <li>{{eachLanguage}}</li>
+    {% endfor %}
+</ul>
+
+
+<!-- if else  -->
+{% if ans %}
+    <p>{{num1}} is greater than {{num2}}</p>
+{% else %}
+    <p><p>{{num2}} is greater than {{num1}}</p></p>
+{% endif%}
+{% endblock %}

@@ -27,3 +27,17 @@ def functionIndex(request):
     
 def about(request):
     return render(request, 'about.html')
+
+def temp(request):
+    name = "Manish"
+    languages = ['C', 'C++', 'Java', 'python']
+    num1, num2 = 50, 10
+    ans = num1 > num2
+    tempDict = {
+        "name" : name,
+        "languages": languages,
+        "num1" : num1,
+        "num2" : num2,
+        "ans" : ans,
+    }
+    return render(request, 'temp.html', context = tempDict)

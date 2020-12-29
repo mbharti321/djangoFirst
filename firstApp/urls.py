@@ -11,5 +11,6 @@ urlpatterns=[
 
     path('index', views.functionIndex, name = "index"),
     path('about', views.about, name = "about"),
+    path('temp', views.temp, name = 'temp'),
     
 ]
