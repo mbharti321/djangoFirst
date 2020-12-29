@@ -24,3 +24,6 @@ def functionIntro2(request, name, age):
 
 def functionIndex(request):
     return render(request, 'index.html')
+    
+def about(request):
+    return render(request, 'about.html')
