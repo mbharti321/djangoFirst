@@ -41,3 +41,10 @@ def temp(request):
         "ans" : ans,
     }
     return render(request, 'temp.html', context = tempDict)
+
+
+def myImage(request):
+    return render(request, 'myImage.html')
+
+def myImage2(request):
+    return render(request, 'myImage2.html')

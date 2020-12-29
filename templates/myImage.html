@@ -1,0 +1,22 @@
+{% extends 'baseTemplate.html' %}
+{% load static %}
+{% block title %} My Image {% endblock %}
+
+{% block content %} 
+    <h1>i'm image page..</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-d" style="margin: 0 auto;">
+                <img src="{% static 'yoda.jpeg' %}" class="img-fluid" alt="Hello">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
