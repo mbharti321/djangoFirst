@@ -14,8 +14,11 @@ urlpatterns=[
     path('temp', views.temp, name = 'temp'),
     path('myImage', views.myImage, name = 'myImage'),
     path('myImage2', views.myImage2, name = 'myImage2'),
+
     path('myForm', views.myForm, name = 'myForm'),
-
-
     path('myFormResponse', views.myFormResponse, name = 'myFormResponse'),
+
+    path('myForm2', views.myForm2, name = 'myForm2'),
+    path('myFormResponse2', views.myFormResponse2, name = 'myFormResponse2'),
+
 ]

@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-# Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
+from .forms import MyIntroForm
+
+
+# Create your views here.
 def myFunction(request):
     return HttpResponse("Hola World! How are you?")
 
@@ -50,6 +53,8 @@ def myImage2(request):
     return render(request, 'myImage2.html')
 
 
+
+
 def myForm(request):
     return render(request, 'myForm.html')
 
@@ -72,3 +77,27 @@ def myFormResponse(request):
     }
     return JsonResponse(responseDict)
     
+    
+
+
+
+# https://docs.djangoproject.com/en/3.1/topics/forms/ for reference
+def myForm2(request):
+    if request.method == 'POST':
+        form = MyIntroForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/myFormResponse2/')
+            # return HttpResponseRedirect( url 'myFormResponse2')
+    else:
+        form = MyIntroForm()
+
+    return render(request, 'myForm2.html', {"form": form})
+
+
+def myFormResponse2(request):
+    responseDict={
+        "FName": request.POST['firstName'],
+        "LName": request.POST['lastName'],
+        "method": request.method,
+    }
+    return JsonResponse(responseDict)
