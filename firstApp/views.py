@@ -83,11 +83,19 @@ def myFormResponse(request):
 
 # https://docs.djangoproject.com/en/3.1/topics/forms/ for reference
 def myForm2(request):
-    if request.method == 'POST':
+    # if form is sumitted using POST method
+    if request.method == "POST":
         form = MyIntroForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('/myFormResponse2/')
-            # return HttpResponseRedirect( url 'myFormResponse2')
+            responseDict = {
+                # "FName": request.POST['firstName']
+                # "LName": request.POST['lastName']
+                "form" : MyIntroForm(),
+                "success" : True,
+                "successMessage" : "Successfully submitted.",
+            }
+            return render(request, 'myForm2.html', context = responseDict)
+
     else:
         form = MyIntroForm()
 
