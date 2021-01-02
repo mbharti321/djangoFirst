@@ -87,14 +87,20 @@ def myForm2(request):
     if request.method == "POST":
         form = MyIntroForm(request.POST)
         if form.is_valid():
-            responseDict = {
-                # "FName": request.POST['firstName']
-                # "LName": request.POST['lastName']
-                "form" : MyIntroForm(),
-                "success" : True,
-                "successMessage" : "Successfully submitted.",
+            FName = request.POST['firstName']
+            LName =request.POST['lastName']
+            responseDict = {                
+                "form" : MyIntroForm(),                
             }
-            return render(request, 'myForm2.html', context = responseDict)
+            if FName != FName.upper():
+                responseDict["error"] = True
+                responseDict["errorMessage"]= "First name should be in cappital"
+                return render(request, 'myForm2.html', context = responseDict)
+            else:
+                responseDict["success"] = True
+                responseDict["successMessage"] ="Successfully submitted."
+                return render(request, 'myForm2.html' , context = responseDict)
+
 
     else:
         form = MyIntroForm()
